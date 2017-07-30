@@ -1,0 +1,25 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%= link_to 'sharebit', root_url, class: 'navbar-brand' %>
+    </div>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'navbar-form navbar-right form-inline' }) do |f| %>
+      <div class="form-group">
+        <%#= f.label :email %>
+        <div>Email</div>
+        <%= f.email_field :email, class: 'form-control', autofocus: true, placeholder: 'email@example.com' %>
+      </div>
+      <div class="form-group">
+        <%#= f.label :password %>
+        <div>Password</div>
+        <%= f.password_field :password, class: 'form-control', autocomplete: 'off', placeholder: 'password' %>
+        <div>
+          <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+            <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+          <% end -%>
+        </div>
+      </div>
+      <%= f.submit 'Log in', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</nav>

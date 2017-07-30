@@ -30,6 +30,8 @@ group :development do
   gem 'letter_opener'
   gem 'guard'
   gem 'guard-rspec', '~> 4.2.8'
+  gem 'pry'
+  gem 'pry-byebug'
 end
 
 group :development, :test do

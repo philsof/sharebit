@@ -1,7 +1,9 @@
 <%= provide(:title, 'Log In or Sign Up') %>
 <div class="container-fluid">
-  <%= render 'navbar' %>
-  
+  <div class="row">
+    <%= render 'navbar' %>
+  </div>
+
   <div class="row">
     <div class="col-md-7 text-center">
       <h1><strong>Connect with friends and the<br>world around you on Sharebit.</strong></h1>
@@ -21,7 +23,11 @@
 
   <div class="row">
     <div class="col-md-12">
-      <%= render 'footer' %>
+      <div class="navbar-static-bottom">
+        <div class="container">
+          <%= render 'footer' %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

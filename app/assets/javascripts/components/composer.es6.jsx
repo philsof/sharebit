@@ -14,7 +14,7 @@ function Composer(props) {
             </div>
             <div className="media-body">
               <div className="form-group">
-                <textarea onChange={props.handleStatusUpdate} className="form-control" rows="3" placeholder={`What's up, ${props.current_user}?`} value={props.composerContent} autoFocus="true" />
+                <textarea onChange={props.handleStatusUpdate} className="form-control" rows="3" placeholder={`What's up, ${props.current_user}?`} value={props.composerContent} />
               </div>
             </div>
           </div>

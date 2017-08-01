@@ -43,10 +43,11 @@ class Dashboard extends React.Component {
 
             <Newsfeed
               handleStatusUpdate={this.handleStatusUpdate}
-              composerContent={this.state.content}
               handleSubmit={this.handleSubmit}
               handleFileUpload={this.handleFileUpload}
+              composerContent={this.state.content}
               current_user={current_user}
+              posts={posts}
             />
 
             <div className="col-md-4"></div>

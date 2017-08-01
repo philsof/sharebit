@@ -1,6 +1,7 @@
 class Newsfeed extends React.Component {
   render () {
-    const { handleStatusUpdate, composerContent, handleSubmit, handleFileUpload, current_user } = this.props;
+    const { handleStatusUpdate, composerContent, handleSubmit,
+            handleFileUpload, current_user, posts } = this.props;
     return(
       <div className="col-md-5">
         <Composer
@@ -11,7 +12,7 @@ class Newsfeed extends React.Component {
           current_user={current_user.name}
         />
 
-
+        <Posts posts={posts} />
       </div>
     );
   }

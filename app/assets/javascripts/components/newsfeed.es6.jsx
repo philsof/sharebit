@@ -1,15 +1,22 @@
 class Newsfeed extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   render () {
     const { handleStatusUpdate, composerContent, handleSubmit,
-            handleFileUpload, current_user, posts } = this.props;
+            handleImageChange, handlePreviewRemoval, current_user, posts, imagePreview, imagePreviewUrl } = this.props;
     return(
       <div className="col-md-5">
         <Composer
           handleStatusUpdate={handleStatusUpdate}
-          composerContent={composerContent}
+          handleImageChange={handleImageChange}
           handleSubmit={handleSubmit}
-          handleFileUpload={handleFileUpload}
+          handlePreviewRemoval={handlePreviewRemoval}
+          composerContent={composerContent}
           current_user={current_user.name}
+          imagePreviewUrl={imagePreviewUrl}
+          imagePreview={imagePreview}
         />
 
         <Posts posts={posts} />

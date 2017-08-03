@@ -4,25 +4,50 @@ class Dashboard extends React.Component {
     this.state = {
       content: '',
       attachment: '',
+      imagePreviewUrl: '',
+      imagePreview: false,
     }
-    this.handleStatusUpdate = this.handleStatusUpdate.bind(this);
-    this.handleFileUpload   = this.handleFileUpload.bind(this);
-    this.handleSubmit       = this.handleSubmit.bind(this);
+    this.handleStatusUpdate   = this.handleStatusUpdate.bind(this);
+    this.handleImageChange    = this.handleImageChange.bind(this);
+    this.handleSubmit         = this.handleSubmit.bind(this);
+    this.handlePreviewRemoval = this.handlePreviewRemoval.bind(this);
   }
 
   handleStatusUpdate(e) {
     this.setState({content: e.target.value});
   }
 
-  handleFileUpload(e) {
-    this.setState({attachment: e.target.value});
+  handleImageChange(e) {
+    e.preventDefault();
+
+    const reader      = new FileReader();
+    const attachment  = e.target.files[0];
+
+    reader.onloadend = () => {
+      this.setState({
+        attachment: attachment,
+        imagePreviewUrl: reader.result,
+        imagePreview: !this.state.imagePreview,
+      });
+    }
+    reader.readAsDataURL(attachment);
+  }
+
+  handlePreviewRemoval(e) {
+    // e.preventDefault();
+    this.setState({
+      imagePreview: !this.state.imagePreview,
+      attachment: '',
+      imagePreviewUrl: '',
+    });
   }
 
   handleSubmit(e) {
     e.preventDefault();
+
     const { handleNewPost } = this.props;
 
-    $.post('/posts', { post: this.state }, (data) => {
+    $.post('/posts', { post: {content: this.state.content, attachment: this.state.imagePreviewUrl} }, (data) => {
       console.log(data);
       handleNewPost(data);
     });
@@ -30,6 +55,8 @@ class Dashboard extends React.Component {
     this.setState({
       content: '',
       attachment: '',
+      imagePreviewUrl: '',
+      imagePreview: !this.state.imagePreview,
     });
   }
 
@@ -44,8 +71,11 @@ class Dashboard extends React.Component {
             <Newsfeed
               handleStatusUpdate={this.handleStatusUpdate}
               handleSubmit={this.handleSubmit}
-              handleFileUpload={this.handleFileUpload}
+              handleImageChange={this.handleImageChange}
+              handlePreviewRemoval={this.handlePreviewRemoval}
               composerContent={this.state.content}
+              imagePreviewUrl={this.state.imagePreviewUrl}
+              imagePreview={this.state.imagePreview}
               current_user={current_user}
               posts={posts}
             />

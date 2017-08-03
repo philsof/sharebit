@@ -12,9 +12,9 @@ class App extends React.Component {
   }
 
   addPost(post) {
-    const posts = this.state.posts.slice();
-    posts.unshift(post);
-    this.setState({ posts: posts });
+    this.setState(prevState => ({
+      posts: [post, ...prevState.posts],
+    }));
   }
 
   render () {

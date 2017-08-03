@@ -14,22 +14,29 @@ function Composer(props) {
             </div>
             <div className="media-body">
               <div className="form-group">
-                <textarea onChange={props.handleStatusUpdate} className="form-control" rows="3" placeholder={`What's up, ${props.current_user}?`} value={props.composerContent} />
+                <textarea onChange={props.handleStatusUpdate} className="form-control" rows="3" placeholder={props.imagePreview ? 'Say something about this photo...' : `What's up, ${props.current_user}?`} value={props.composerContent} />
               </div>
             </div>
+            { props.imagePreview && <img src={props.imagePreviewUrl} className="img-responsive" alt="" /> }
+            { props.imagePreview && <button onClick={props.handlePreviewRemoval} className="btn btn-link">
+              <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button> }
           </div>
         </div>
         <div className="panel-footer">
           <div className="row">
-            <div className="col-md-6">
-              <div className="form-group">
-                <div className="pull-left">
-                  <span className="btn btn-success btn-sm btn-file">
-                    <span className="glyphicon glyphicon-picture" aria-hidden="true"></span> <input onChange={props.handleFileUpload} type="file" />
-                  </span>
+                <div className="col-md-6">
+                  <div className="form-group">
+                    <div className="pull-left">
+                      { !props.imagePreview &&
+                        <span className="btn btn-success btn-sm btn-file">
+                          <span className="glyphicon glyphicon-picture" aria-hidden="true"></span>
+                          <input onChange={props.handleImageChange} type="file" />
+                        </span>
+                      }
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
 
             <div className="col-md-6">
               <div className="form-group">

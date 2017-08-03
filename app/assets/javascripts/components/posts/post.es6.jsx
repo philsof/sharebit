@@ -1,4 +1,8 @@
 function Post(props) {
+  const timeago = date => {
+    return $.timeago(date);
+  }
+
   return(
     <div className="panel panel-default">
       <div className="panel-body">
@@ -10,7 +14,7 @@ function Post(props) {
           </div>
           <div className="media-body">
             <h4 className="media-heading"><a href="#">{props.owner}</a></h4>
-            <small className="text-muted">{props.created}</small>
+            <small className="text-muted">{timeago(props.created)}</small>
           </div>
         </div>
 

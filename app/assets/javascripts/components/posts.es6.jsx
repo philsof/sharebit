@@ -1,6 +1,7 @@
 class Posts extends React.Component {
   render () {
     const { posts } = this.props;
+    
     return(
       <div>
         {posts.map((post) => {

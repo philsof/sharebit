@@ -25,7 +25,11 @@ class App extends React.Component {
           <Navbar />
         </div>
 
-        <Dashboard posts={posts} handleNewPost={this.addPost} current_user={this.props.current_user}/>
+        <Dashboard
+          posts={posts}
+          handleNewPost={this.addPost}
+          current_user={this.props.current_user}
+        />
       </div>
     );
   }

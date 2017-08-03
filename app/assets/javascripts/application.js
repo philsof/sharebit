@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require bindWithDelay
+//= require jquery.timeago
 //= require jquery.datetimepicker
 //= require react
 //= require react_ujs

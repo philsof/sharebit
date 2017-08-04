@@ -45,6 +45,11 @@ class Dashboard extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
+    if (this.state.content.length < 1) {
+      alert('This post appears to be blank. Please write something or attach a link or photo to post.');
+      return
+    }
+
     const { handleNewPost } = this.props;
 
     $.post('/posts', { post: {content: this.state.content, attachment: this.state.imagePreviewUrl} }, (data) => {
@@ -52,11 +57,12 @@ class Dashboard extends React.Component {
       handleNewPost(data);
     });
 
+    this.state.imagePreviewUrl && this.setState({ imagePreview: !this.state.imagePreview });
+
     this.setState({
       content: '',
       attachment: '',
       imagePreviewUrl: '',
-      imagePreview: !this.state.imagePreview,
     });
   }
 

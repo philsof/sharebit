@@ -34,6 +34,7 @@ function Composer(props) {
                           <input onChange={props.handleImageChange} type="file" />
                         </span>
                       }
+                      <input type="hidden" name="avatar_cache" />
                     </div>
                   </div>
                 </div>

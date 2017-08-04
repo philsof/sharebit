@@ -14,7 +14,7 @@ function Post(props) {
           </div>
         </div>
         <p className="lead text-justify">{props.content}</p>
-        <img src={props.image} className="img-responsive" alt="" />
+        <img src={props.image} className="img-responsive center-block" alt="" />
         <hr/>
         <ul className="list-inline">
           <li>

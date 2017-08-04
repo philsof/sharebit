@@ -49,6 +49,7 @@ end
 
 gem 'devise'
 gem 'carrierwave', '~> 1.0'
+gem "mini_magick"
 gem 'carrierwave-base64'
 gem 'friendly_id', '~> 5.0'
 

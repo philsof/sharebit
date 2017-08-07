@@ -18,9 +18,6 @@ function Composer(props) {
               </div>
             </div>
             { props.imagePreview && <img src={props.imagePreviewUrl} className="img-responsive" alt="" /> }
-            { props.imagePreview && <button onClick={props.handlePreviewRemoval} className="btn btn-link">
-              <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
-            </button> }
           </div>
         </div>
         <div className="panel-footer">
@@ -35,6 +32,12 @@ function Composer(props) {
                         </span>
                       }
                       <input type="hidden" name="avatar_cache" />
+                      { props.imagePreview &&
+                        <button onClick={props.handlePreviewRemoval} className="btn btn-danger btn-sm">
+                          {/* <span className="glyphicon glyphicon-remove" aria-hidden="true"> Remove Photo</span> */}
+                          Remove Photo
+                        </button>
+                      }
                     </div>
                   </div>
                 </div>

@@ -45,7 +45,7 @@ class Dashboard extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    if (this.state.content.length < 1) {
+    if (this.state.content.length < 1 && this.state.imagePreviewUrl.length < 1 ) {
       alert('This post appears to be blank. Please write something or attach a link or photo to post.');
       return
     }

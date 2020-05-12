@@ -4,6 +4,9 @@ ruby '~> 2.3.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.0.3'
 
+# Use ReactJS to render view components
+gem "react-rails"
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -16,7 +19,7 @@ gem 'merit'
 gem 'jquery-atwho-rails'
 
 # Use twitter bootstrap sass
-gem 'bootstrap-sass', '~> 3.2.0'
+gem 'bootstrap-sass', '~> 3.3.6'
 gem 'autoprefixer-rails'
 gem 'font-awesome-rails'
 
@@ -27,6 +30,8 @@ group :development do
   gem 'letter_opener'
   gem 'guard'
   gem 'guard-rspec', '~> 4.2.8'
+  gem 'pry'
+  gem 'pry-byebug'
 end
 
 group :development, :test do
@@ -43,7 +48,9 @@ group :production do
 end
 
 gem 'devise'
-gem 'carrierwave'
+gem 'carrierwave', '~> 1.0'
+gem "mini_magick"
+gem 'carrierwave-base64'
 gem 'friendly_id', '~> 5.0'
 
 gem 'will_paginate', '~> 3.1.0'

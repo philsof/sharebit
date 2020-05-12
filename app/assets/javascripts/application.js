@@ -14,11 +14,9 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require bindWithDelay
+//= require jquery.timeago
 //= require jquery.datetimepicker
+//= require react
+//= require react_ujs
+//= require components
 //= require_tree .
-
-@import "bootstrap-sprockets";
-@import "bootstrap";
-@import "font-awesome";
-@import "jquery.datetimepicker";
-@import "*";
